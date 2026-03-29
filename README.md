@@ -1,30 +1,45 @@
-# 🚀 DevQuest - Professional Project Management System
+# 🚀 TaskMaster Pro - Workflow Management System
 
-## 📌 About the Project
-DevQuest is a task and project management system built with the **Django** framework. This project represents an evolution in my development path, moving from FastAPI to a more robust, enterprise-grade architecture focusing on relational databases and professional user management.
+A professional task and project management system built with **Django**, designed to handle complex relational data and streamline business workflows.
+
+---
+
+## 💡 The Evolution (Pivot from FastAPI)
+This project originally started as "UserFlow" using FastAPI. However, to better handle **Enterprise-grade relational data** and leverage the power of a **Robust ORM**, I decided to migrate the core architecture to **Django**. 
+
+This transition allowed for:
+* **Structured Data:** Better management of Project-Task relationships.
+* **Security:** Built-in protection against common web vulnerabilities.
+* **Efficiency:** Rapid development using the Django Admin interface and MVT pattern.
+
+---
 
 ## 🛠️ Tech Stack
-- **Backend:** Python 3.x, Django 5.x
-- **Database:** SQLite (Development) / Migrating to PostgreSQL (Production)
-- **Architecture:** MVT (Model-View-Template)
-- **Security:** Django Auth System, CSRF Protection, Password Hashing
+* **Backend:** Python 3.9+, Django 5.x
+* **Database:** SQLite (Development) / PostgreSQL (Planned for Production)
+* **Architecture:** MVT (Model-View-Template)
 
-## 🌟 Key Features (Roadmap)
-- [x] Professional project structure and environment setup.
-- [x] Fully functional Admin Panel for database management.
-- [ ] Custom User Model with enhanced authentication.
-- [ ] Full CRUD functionality for projects and tasks.
-- [ ] Interactive Dashboard with progress tracking.
+---
 
-## 🚀 Getting Started
-1. **Clone the repository:**
-   `git clone https://github.com/YOUR-USERNAME/DevQuest-Django-Suite.git`
-2. **Create and activate a virtual environment:**
-   `python -m venv venv`
-   `venv\Scripts\activate`
-3. **Install dependencies:**
-   `pip install django`
-4. **Run migrations:**
-   `python manage.py migrate`
-5. **Start the server:**
-   `python manage.py runserver`
+## 📈 Current Features
+- [x] **Relational Schema:** Implemented `ForeignKey` relationships between Projects and Tasks.
+- [x] **Status Workflow:** Integrated `STATUS_CHOICES` (To Do, In Progress, Done) for task tracking.
+- [x] **Advanced Admin Panel:** Custom Django Admin with list filters, search fields, and editable statuses.
+- [x] **Clean Code:** Adhering to Django best practices and modular app structure.
+
+---
+
+## 🗺️ Roadmap
+- [ ] **Public Dashboard:** Creating frontend views to display project progress.
+- [ ] **User Authentication:** Implementing multi-user access and task assignment.
+- [ ] **REST API:** Adding Django Rest Framework (DRF) for external integrations.
+- [ ] **Automated Testing:** Writing UnitTests for core business logic.
+
+---
+
+## ⚙️ Installation
+1. Clone the repo: `git clone https://github.com/Kzaai/DevQuest-Django-Suite.git`
+2. Create virtualenv: `python -m venv venv`
+3. Install dependencies: `pip install -r requirements.txt`
+4. Run migrations: `python manage.py migrate`
+5. Start server: `python manage.py runserver`
