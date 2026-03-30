@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TaskMaster Pro - Projekty</title>
+</head>
+<body>
+    <h1>Moje Projekty</h1>
+    <ul>
+        {% for project in projects %}
+            <li>
+                <strong>{{ project.title }}</strong> - {{ project.technology }}
+                <p>{{ project.description }}</p>
+            </li>
+        {% empty %}
+            <li>Brak projektów. Dodaj coś w Panelu Admina!</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
