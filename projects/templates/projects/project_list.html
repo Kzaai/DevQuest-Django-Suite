@@ -1,19 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
-    <title>TaskMaster Pro - Projekty</title>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>TaskMaster Pro - Dashboard</title>
 </head>
-<body>
-    <h1>Moje Projekty</h1>
-    <ul>
-        {% for project in projects %}
-            <li>
-                <strong>{{ project.title }}</strong> - {{ project.technology }}
-                <p>{{ project.description }}</p>
-            </li>
-        {% empty %}
-            <li>Brak projektów. Dodaj coś w Panelu Admina!</li>
-        {% endfor %}
-    </ul>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <h1 class="mb-4 text-primary">Moje Projekty</h1>
+        
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ project.title }}</h5>
+                        <span class="badge bg-info text-dark mb-3">{{ project.technology }}</span>
+                        <p class="card-text text-muted small">{{ project.description }}</p>
+                        
+                        <hr>
+                        <h6 class="small fw-bold text-uppercase text-secondary">Zadania:</h6>
+                        
+                        <ul class="list-unstyled">
+                            {% for task in tasks %}
+                                {% if task.project == project %}
+                                    <li class="p-2 mb-1 rounded small d-flex justify-content-between align-items-center 
+                                        {% if task.status == 'DONE' %}bg-success-subtle text-success
+                                        {% elif task.status == 'IN_PROGRESS' %}bg-warning-subtle text-warning-emphasis
+                                        {% else %}bg-secondary-subtle text-secondary{% endif %}">
+                                        
+                                        {{ task.title }}
+                                        <span class="badge rounded-pill {% if task.status == 'DONE' %}bg-success{% elif task.status == 'IN_PROGRESS' %}bg-warning text-dark{% else %}bg-secondary{% endif %}">
+                                            {{ task.status }}
+                                        </span>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>Nie masz jeszcze projektów. Dodaj je w Panelu Admina!</p>
+            {% endfor %}
+        </div>
+    </div>
+
 </body>
 </html>
