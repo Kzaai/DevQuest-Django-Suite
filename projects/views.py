@@ -42,8 +42,11 @@ def project_detail(request, pk):
 
 def complete_task(request, task_id):
     task = get_object_or_404(Task, id=task_id) #Pobierz zadanie
-    task.status = 'Done' #Zmiana na zrobione
-    task.save() #Zapisz zmiany
+    if task.status == 'Done': #Jesli jest zrobione
+        task.status = 'To Do' #Zmien na do zrobienia
+    else:
+        task.status = 'Done' #Zmien na zrobione
+    task.save()
 
     return redirect('project_detail', pk=task.project.pk) #Uzytkownik wraca do torny projektu z zadaniem
 
