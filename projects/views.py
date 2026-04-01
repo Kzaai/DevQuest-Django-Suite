@@ -39,3 +39,11 @@ def project_detail(request, pk):
                         'tasks': tasks, 
                         'form': form #Dajemy do HTML
                   })
+
+def complete_task(request, task_id):
+    task = get_object_or_404(Task, id=task_id) #Pobierz zadanie
+    task.status = 'Done' #Zmiana na zrobione
+    task.save() #Zapisz zmiany
+
+    return redirect('project_detail', pk=task.project.pk) #Uzytkownik wraca do torny projektu z zadaniem
+
