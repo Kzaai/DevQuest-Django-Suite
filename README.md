@@ -26,6 +26,11 @@ This transition allowed for:
 - [x] **Status Workflow:** Integrated `STATUS_CHOICES` (To Do, In Progress, Done) for task tracking.
 - [x] **Advanced Admin Panel:** Custom Django Admin with list filters, search fields, and editable statuses.
 - [x] **Clean Code:** Adhering to Django best practices and modular app structure.
+- [x] **Dynamic Frontend:** Responsive Project Dashboard built with **Bootstrap 5**.
+
+- [x] **Relational Linking:** Implemented dynamic "Detail Views" connecting projects to their specific tasks via Primary Keys (PK).
+
+- [x] **Navigation System:** Global navigation bar for seamless switching between modules.
 
 ---
 
